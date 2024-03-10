@@ -34,19 +34,20 @@ class FavoritesPage extends StatelessWidget {
                 ),
                 IconButton(
                   icon: Icon(Icons.delete),
-                  onPressed: () =>
-                      _showConfirmationDialog(context, entry.key, appState),
+                  onPressed: () => _showDeleteConfirmationDialog(
+                      context, entry.key, appState),
                 ),
               ],
             ),
-            onTap: () => _showConfirmationDialog(context, entry.key, appState),
+            onTap: () =>
+                _showDeleteConfirmationDialog(context, entry.key, appState),
           ),
       ],
     );
   }
 }
 
-void _showConfirmationDialog(
+void _showDeleteConfirmationDialog(
     BuildContext context, WordPair pair, MyAppState appState) {
   String favoriteName = appState.favorites[pair] ?? pair.asLowerCase;
 
